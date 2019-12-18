@@ -4,3 +4,7 @@ i was very disappointed to see the new para 2.0 release. i had predicted it woul
 
 instead i saw an invokedynamic decryptor weaker than zelix, flow obfuscation.. if you can even call it that.
 what is the point of disabling the verifier if there is only a handful of instructions that break decompilers and 5 minutes of asm customization?
+
+## You are not safe using Paramorphism 2.0
+
+i dont see an issue with someone trying to make an obfuscator, but behind the flashy analysis crashers, your code is almost lossless.
