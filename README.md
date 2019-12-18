@@ -8,3 +8,5 @@ what is the point of disabling the verifier if there is only a handful of instru
 ## You are not safe using Paramorphism 2.0
 
 i dont see an issue with someone trying to make an obfuscator, but behind the flashy analysis crashers, your code is almost lossless.
+
+## More thorough source leak later
