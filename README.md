@@ -9,4 +9,15 @@ what is the point of disabling the verifier if there is only a handful of instru
 
 i dont see an issue with someone trying to make an obfuscator, but behind the flashy analysis crashers, your code is almost lossless.
 
+- Patched ASM Exploits
+- Removed Invalid Bytecode
+- Removed _protected_by_paramorphism methods
+- Removed String Concealing (Invoke Dynamic)
+- Removed Method Indirection (Invoke Dynamic)
+- Replaced Conditional Jumps with Goto
+- Removed Synthetic
+- Removed Kotlin Nonnull checks
+- Recovered ASM Opcode field calls
+- Manually remapped classes, fields, and methods
+
 ## More thorough source leak later
