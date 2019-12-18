@@ -1,0 +1,148 @@
+package paramorphism-obfuscator.verifierDisabler;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Lambda;
+import kotlin.jvm.internal.Reflection;
+import org.jetbrains.annotations.NotNull;
+import org.objectweb.asm.tree.FieldNode;
+import paramorphism-obfuscator.instruction.ArrayVarInstruction;
+import paramorphism-obfuscator.instruction.FieldInstruction;
+import paramorphism-obfuscator.instruction.JumpInstruction;
+import paramorphism-obfuscator.instruction.MathInstruction;
+import paramorphism-obfuscator.instruction.MethodInstruction;
+import paramorphism-obfuscator.instruction.NumberInstruction;
+import paramorphism-obfuscator.instruction.StackInstruction;
+import paramorphism-obfuscator.instruction.TypeInstruction;
+import paramorphism-obfuscator.instruction.VarInstruction;
+import paramorphism-obfuscator.wrappers.ClassWrapper;
+import paramorphism-obfuscator.wrappers.IInstructionWrapper;
+import paramorphism-obfuscator.wrappers.MethodWrapper;
+
+public final class PutByteLambda extends Lambda implements Function1 {
+   public final ClassWrapper sn;
+   public final FieldNode so;
+   public final String sp;
+   public final String sq;
+   public final String sr;
+   public final FieldNode ss;
+   public final String st;
+   public final String su;
+
+   public Object invoke(Object var1) {
+      this.a((MethodWrapper)var1);
+      return Unit.INSTANCE;
+   }
+
+   public final void a(@NotNull MethodWrapper var1) {
+      FieldInstruction.addGetStatic((IInstructionWrapper)var1, this.sn.getType(), this.so.name, var1.bm());
+      JumpInstruction.addIfEqual((IInstructionWrapper)var1, var1.getLabels().a(1));
+      JumpInstruction.addDuplicateReturn((IInstructionWrapper)var1);
+      var1.getLabels().a(1).a();
+      NumberInstruction.addIOne((IInstructionWrapper)var1);
+      FieldInstruction.addPutStatic((IInstructionWrapper)var1, this.sn.getType(), this.so.name, var1.bm());
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.sp, var1.be());
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.sq, Reflection.getOrCreateKotlinClass(Object[].class));
+      VarInstruction.addObjectStoreTwo((IInstructionWrapper)var1);
+      VarInstruction.addObjectLoadTwo((IInstructionWrapper)var1);
+      JumpInstruction.addIfNotNull((IInstructionWrapper)var1, var1.getLabels().a(8));
+      TypeInstruction.addNew((IInstructionWrapper)var1, Reflection.getOrCreateKotlinClass(RuntimeException.class));
+      StackInstruction.addDup((IInstructionWrapper)var1);
+      MethodInstruction.addInvokeSpecial((IInstructionWrapper)var1, Reflection.getOrCreateKotlinClass(RuntimeException.class), "<init>", var1.be());
+      JumpInstruction.addAThrow((IInstructionWrapper)var1);
+      var1.getLabels().a(8).a();
+      VarInstruction.addObjectLoadTwo((IInstructionWrapper)var1);
+      NumberInstruction.addITwo((IInstructionWrapper)var1);
+      ArrayVarInstruction.addObjectArrayLoad((IInstructionWrapper)var1);
+      TypeInstruction.addCheckCast((IInstructionWrapper)var1, Integer.class);
+      MethodInstruction.addInvokeVirtual((IInstructionWrapper)var1, Integer.class, "intValue", var1.bi());
+      VarInstruction.addIntStoreThree((IInstructionWrapper)var1);
+      VarInstruction.addObjectLoadTwo((IInstructionWrapper)var1);
+      NumberInstruction.addLdc((IInstructionWrapper)var1, "flags");
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.sr, Reflection.getOrCreateKotlinClass(Object[].class), Reflection.getOrCreateKotlinClass(Object[].class), Reflection.getOrCreateKotlinClass(String.class));
+      VarInstruction.addObjectStore((IInstructionWrapper)var1, 4);
+      FieldInstruction.addGetStatic((IInstructionWrapper)var1, this.sn.getType(), this.ss.name, "sun/misc/Unsafe");
+      VarInstruction.addObjectLoad((IInstructionWrapper)var1, 4);
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.st, var1.bk(), Reflection.getOrCreateKotlinClass(Object[].class));
+      MethodInstruction.addInvokeVirtual((IInstructionWrapper)var1, "sun/misc/Unsafe", "getAddress", var1.bk(), var1.bk());
+      VarInstruction.addLongStore((IInstructionWrapper)var1, 5);
+      VarInstruction.addObjectLoadTwo((IInstructionWrapper)var1);
+      NumberInstruction.addLdc((IInstructionWrapper)var1, "numFlags");
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.sr, Reflection.getOrCreateKotlinClass(Object[].class), Reflection.getOrCreateKotlinClass(Object[].class), Reflection.getOrCreateKotlinClass(String.class));
+      VarInstruction.addObjectStore((IInstructionWrapper)var1, 7);
+      FieldInstruction.addGetStatic((IInstructionWrapper)var1, this.sn.getType(), this.ss.name, "sun/misc/Unsafe");
+      VarInstruction.addObjectLoad((IInstructionWrapper)var1, 7);
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.st, var1.bk(), Reflection.getOrCreateKotlinClass(Object[].class));
+      MethodInstruction.addInvokeVirtual((IInstructionWrapper)var1, "sun/misc/Unsafe", "getInt", var1.bi(), var1.bk());
+      VarInstruction.addIntStore((IInstructionWrapper)var1, 8);
+      VarInstruction.addObjectLoadTwo((IInstructionWrapper)var1);
+      NumberInstruction.addLdc((IInstructionWrapper)var1, "_name");
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.sr, Reflection.getOrCreateKotlinClass(Object[].class), Reflection.getOrCreateKotlinClass(Object[].class), Reflection.getOrCreateKotlinClass(String.class));
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.st, var1.bk(), Reflection.getOrCreateKotlinClass(Object[].class));
+      VarInstruction.addLongStore((IInstructionWrapper)var1, 9);
+      VarInstruction.addObjectLoadTwo((IInstructionWrapper)var1);
+      NumberInstruction.addLdc((IInstructionWrapper)var1, "_addr");
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.sr, Reflection.getOrCreateKotlinClass(Object[].class), Reflection.getOrCreateKotlinClass(Object[].class), Reflection.getOrCreateKotlinClass(String.class));
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.st, var1.bk(), Reflection.getOrCreateKotlinClass(Object[].class));
+      VarInstruction.addLongStore((IInstructionWrapper)var1, 11);
+      NumberInstruction.addIZero((IInstructionWrapper)var1);
+      VarInstruction.addIntStore((IInstructionWrapper)var1, 13);
+      var1.getLabels().a(17).a();
+      VarInstruction.addIntLoad((IInstructionWrapper)var1, 13);
+      VarInstruction.addIntLoad((IInstructionWrapper)var1, 8);
+      NumberInstruction.addIOne((IInstructionWrapper)var1);
+      MathInstruction.addISubtract((IInstructionWrapper)var1);
+      JumpInstruction.addIfIntCompareGreaterEqual((IInstructionWrapper)var1, var1.getLabels().a(18));
+      VarInstruction.addLongLoad((IInstructionWrapper)var1, 5);
+      VarInstruction.addIntLoad((IInstructionWrapper)var1, 13);
+      VarInstruction.addIntLoadThree((IInstructionWrapper)var1);
+      MathInstruction.addIMultiply((IInstructionWrapper)var1);
+      MathInstruction.addIntToLong((IInstructionWrapper)var1);
+      MathInstruction.addLAdd((IInstructionWrapper)var1);
+      VarInstruction.addLongStore((IInstructionWrapper)var1, 14);
+      FieldInstruction.addGetStatic((IInstructionWrapper)var1, this.sn.getType(), this.ss.name, "sun/misc/Unsafe");
+      VarInstruction.addLongLoad((IInstructionWrapper)var1, 14);
+      VarInstruction.addLongLoad((IInstructionWrapper)var1, 11);
+      MathInstruction.addLAdd((IInstructionWrapper)var1);
+      MethodInstruction.addInvokeVirtual((IInstructionWrapper)var1, "sun/misc/Unsafe", "getAddress", var1.bk(), var1.bk());
+      VarInstruction.addLongStore((IInstructionWrapper)var1, 16);
+      FieldInstruction.addGetStatic((IInstructionWrapper)var1, this.sn.getType(), this.ss.name, "sun/misc/Unsafe");
+      VarInstruction.addLongLoad((IInstructionWrapper)var1, 14);
+      VarInstruction.addLongLoad((IInstructionWrapper)var1, 9);
+      MathInstruction.addLAdd((IInstructionWrapper)var1);
+      MethodInstruction.addInvokeVirtual((IInstructionWrapper)var1, "sun/misc/Unsafe", "getAddress", var1.bk(), var1.bk());
+      VarInstruction.addLongStore((IInstructionWrapper)var1, 18);
+      VarInstruction.addLongLoad((IInstructionWrapper)var1, 18);
+      MethodInstruction.addInvokeStatic((IInstructionWrapper)var1, this.sn.getType(), this.su, Reflection.getOrCreateKotlinClass(String.class), var1.bk());
+      VarInstruction.addObjectStore((IInstructionWrapper)var1, 20);
+      VarInstruction.addObjectLoad((IInstructionWrapper)var1, 20);
+      JumpInstruction.addIfNull((IInstructionWrapper)var1, var1.getLabels().a(24));
+      VarInstruction.addObjectLoad((IInstructionWrapper)var1, 20);
+      NumberInstruction.addLdc((IInstructionWrapper)var1, "BytecodeVerification");
+      MethodInstruction.addInvokeVirtual((IInstructionWrapper)var1, Reflection.getOrCreateKotlinClass(String.class), "startsWith", var1.bm(), Reflection.getOrCreateKotlinClass(String.class));
+      JumpInstruction.addIfNotEqual((IInstructionWrapper)var1, var1.getLabels().a(25));
+      JumpInstruction.addGoto((IInstructionWrapper)var1, var1.getLabels().a(24));
+      var1.getLabels().a(25).a();
+      FieldInstruction.addGetStatic((IInstructionWrapper)var1, this.sn.getType(), this.ss.name, "sun/misc/Unsafe");
+      VarInstruction.addLongLoad((IInstructionWrapper)var1, 16);
+      NumberInstruction.addIZero((IInstructionWrapper)var1);
+      MethodInstruction.addInvokeVirtual((IInstructionWrapper)var1, "sun/misc/Unsafe", "putByte", var1.be(), var1.bk(), var1.bg());
+      var1.getLabels().a(24).a();
+      MathInstruction.addIIncrementOne((IInstructionWrapper)var1, 13);
+      JumpInstruction.addGoto((IInstructionWrapper)var1, var1.getLabels().a(17));
+      var1.getLabels().a(18).a();
+      JumpInstruction.addDuplicateReturn((IInstructionWrapper)var1);
+   }
+
+   public PutByteLambda(ClassWrapper var1, FieldNode var2, String var3, String var4, String var5, FieldNode var6, String var7, String var8) {
+      super(1);
+      this.sn = var1;
+      this.so = var2;
+      this.sp = var3;
+      this.sq = var4;
+      this.sr = var5;
+      this.ss = var6;
+      this.st = var7;
+      this.su = var8;
+   }
+}
